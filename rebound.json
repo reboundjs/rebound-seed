@@ -4,7 +4,5 @@
   "jsPath": "/templates/apps/:app/index.js",
   "cssPath": "/stylesheets/apps/:app.css",
   "services": {},
-  "routeMapping": {
-    "": "home"
-  }
+  "routeMapping": {}
 }

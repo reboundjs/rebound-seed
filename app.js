@@ -32,9 +32,10 @@
 
 // Init Core
   var app = express();
+      app.set('port', PORT);
+      app.use(compress()); // Compress everything we send
       app.use(favicon(__dirname + '/assets/images/favicon.png')); // Deliver favicon
       app.use(logger('dev')); // Dev level logging
-      app.use(compress()); // Compress everything we send
       app.use(bodyParser.json()); // Parse received json values
       app.use(bodyParser.urlencoded({extended: true})); // Parse URL encoded values
       app.use(methodOverride()); // enable DELETE and PUT
@@ -74,8 +75,8 @@
   }
 
 // Set Static Content Locations
-  app.use(express.static(path.join(__dirname, 'assets')));
-  app.use(multer({ dest: './assets/tmp/uploads/' }));
+  app.use(express.static(path.join(__dirname, 'dist')));
+  app.use(multer({ dest: './dist/tmp/uploads/' }));
 
 // Initiate Sessions.
   app.use(session({
@@ -115,8 +116,6 @@
   app.use(api(express));
 
 // Start Server
-  app.set('port', PORT);
-
   http.createServer(app).listen(app.get('port'), function(){
     console.log(('✔ Express server listening on port ' + app.get('port')).green.bold);
     // If user id and group id are set, force process to run with those permissions

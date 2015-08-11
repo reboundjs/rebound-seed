@@ -1,14 +1,13 @@
-<element name="home-page">
+<element name="error-page">
   <template>
-    <style>
-    
-    </style>
-    Welcome Home!
+    <style></style>
+    Error: 404
+    <a href="/">Take me home</a>
   </template>
   <script>
     return {
       routes: {
-        '': 'index'
+        'foo': 'index'
       },
       index: function(){
         return 1;

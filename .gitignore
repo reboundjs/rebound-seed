@@ -27,6 +27,4 @@ build/Release
 node_modules
 
 # Rebound Seed Specific Ignores
-public/tmp
-public/templates
-public/stylesheets
+dist
