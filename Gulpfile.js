@@ -8,7 +8,12 @@ var rebound = require('gulp-rebound');
 
 gulp.task('clean', function(cb){
   // Clean our dist
-  del(['dist/stylesheets', 'dist/templates', 'dist/tmp'], cb)
+  del(['dist/stylesheets', 'dist/templates', 'dist/tmp', 'dist/index.html'], cb)
+});
+
+gulp.task('index', ['clean'], function(){
+  return gulp.src(["index.html"])
+  .pipe(gulp.dest('dist'));
 });
 
 gulp.task('sass', ['clean'], function () {
@@ -23,12 +28,12 @@ gulp.task('rebound', ['clean'], function(){
   .pipe(gulp.dest('dist/apps'));
 });
 
-gulp.task('default', ['rebound', 'sass'], function () {
+gulp.task('default', ['rebound', 'sass', 'index'], function () {
 
     // Start the server at the beginning of the task
     server.run(['app.js']);
 
-    gulp.watch(['index.html'], [server.notify]);
+    gulp.watch(['index.html'], ['index', server.notify]);
     gulp.watch(['apps/**/*.scss'], ['sass', server.notify]);
     gulp.watch(['apps/**/*.html'], ['rebound', server.notify]);
 
