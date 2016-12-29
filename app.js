@@ -76,7 +76,7 @@
 
 // Set Static Content Locations
   app.use(express.static(path.join(__dirname, 'dist')));
-  app.use(multer({ dest: './dist/tmp/uploads/' }));
+  app.use(multer({ dest: './dist/uploads/' }));
 
 // Initiate Sessions.
   app.use(session({
