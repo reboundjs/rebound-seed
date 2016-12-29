@@ -13,7 +13,7 @@
   var csrf            = require('csurf');
   var errorHandler    = require('errorhandler');
   var express         = require('express');
-  var enforce_ssl    = require('express-enforces-ssl');
+  var enforce_ssl     = require('express-enforces-ssl');
   var helmet          = require('helmet');
   var http            = require('http');
   var methodOverride  = require('method-override');
@@ -76,7 +76,7 @@
 
 // Set Static Content Locations
   app.use(express.static(path.join(__dirname, 'dist')));
-  app.use(multer({ dest: './dist/tmp/uploads/' }));
+  app.use(multer({ dest: './dist/uploads/' }));
 
 // Initiate Sessions.
   app.use(session({

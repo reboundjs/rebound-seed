@@ -1,0 +1,37 @@
+<element name="home-page">
+
+  <style> @import url("scss/test.css"); </style>
+
+  <template>
+    <p>Welcome {{if isSelf 'Home'}} {{self.firstName}}!</p>
+  </template>
+
+  <script type="module">
+
+    import { Component, Services } from "reboundjs";
+    import User from "models/user";
+
+    class Homepage extends Component {
+
+      createdCallback(){
+
+      }
+
+      @route(":uid?")  index(uid, params){
+        this.get('model').set('uid', uid).fetch();
+      }
+
+      profile = new User();
+      self = Services('User');
+
+      get isSelf(){
+        return this.get('self.uid') === this.get('profile.uid');
+      }
+
+    }
+
+    export default Homepage;
+
+  </script>
+
+</element>

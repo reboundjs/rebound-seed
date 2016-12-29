@@ -1,5 +1,5 @@
 {
-  "name": "collegia",
+  "name": "rebound-seed",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -22,7 +22,7 @@
     "gulp": "^3.9.0",
     "gulp-express": "^0.3.5",
     "gulp-rebound": "^1.0.0",
-    "gulp-sass": "^2.0.4",
+    "gulp-sass": "^2.3.2",
     "helmet": "^0.10.0",
     "method-override": "^2.3.4",
     "morgan": "^1.6.1",
